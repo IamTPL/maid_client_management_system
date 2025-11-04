@@ -1,0 +1,12 @@
+# Dependencies
+/node_modules
+
+# TypeScript build output
+# Đây là thư mục chúng ta sẽ biên dịch code ra
+/dist
+*.tsbuildinfo
+
+# Local Environment
+# CỰC KỲ QUAN TRỌNG:
+# Không bao giờ commit file .env chứa bí mật database và Auth0
+.env

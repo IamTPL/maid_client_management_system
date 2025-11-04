@@ -1,36 +1,21 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# OS & IDE
+.DS_Store
+*.pem
+.vscode/
+.idea/
 
-# dependencies
+# Root Dependencies
+# Đây là thư mục node_modules chính của pnpm
 /node_modules
+
+# PnP files (Giữ lại từ file của bạn)
 /.pnp
 .pnp.js
 
-# testing
+# Test Coverage
 /coverage
 
-# next.js
-/.next/
-/out/
-
-# production
-/build
-
-# misc
-.DS_Store
-*.pem
-
-# debug
+# Log files
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-
-# local env files
-.env*.local
-.env
-
-# vercel
-.vercel
-
-# typescript
-*.tsbuildinfo
-next-env.d.ts
