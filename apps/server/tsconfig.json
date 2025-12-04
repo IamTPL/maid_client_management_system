@@ -1,50 +1,25 @@
 {
-  // Visit https://aka.ms/tsconfig to read more about this file
   "compilerOptions": {
-    // File Layout
-    "rootDir": "src",
-    "outDir": "dist",
+    /* --- Environment Settings --- */
+    "target": "es2022", // Compile to modern JS (Node 16+)
+    "lib": ["es2022"], // Modern JS libraries
+    "module": "commonjs", // Very important: Express runs on CommonJS
+    "moduleResolution": "node", // How Node.js resolves modules
 
-    // Environment Settings
-    // See also https://aka.ms/tsconfig/module
-    "module": "commonjs",
-    "target": "esnext",
-    "types": [],
-    "lib": ["es6"],
-    // For nodejs:
-    // "lib": ["esnext"],
-    // "types": ["node"],
-    // and npm install -D @types/node
+    /* --- Build Settings --- */
+    "rootDir": "src", // Our source code is here
+    "outDir": "dist", // Compiled output goes here
+    "sourceMap": true, // Needed for debugging
 
-    // Other Outputs
-    "sourceMap": true,
-    "declaration": true,
-    "declarationMap": true,
+    /* --- Module Interop --- */
+    "esModuleInterop": true, // Allows "import express from 'express'"
+    "resolveJsonModule": true, // Allows importing .json files
 
-    // Stricter Typechecking Options
-    "noUncheckedIndexedAccess": true,
-    "exactOptionalPropertyTypes": true,
-
-    // Style Options
-    // "noImplicitReturns": true,
-    // "noImplicitOverride": true,
-    // "noUnusedLocals": true,
-    // "noUnusedParameters": true,
-    // "noFallthroughCasesInSwitch": true,
-    // "noPropertyAccessFromIndexSignature": true,
-
-    // Recommended Options
-    "strict": true,
-    "jsx": "react-jsx",
-    "verbatimModuleSyntax": true,
-    "isolatedModules": true,
-    "noUncheckedSideEffectImports": true,
-    "moduleDetection": "force",
-    "skipLibCheck": true,
-
-    "esModuleInterop": true,
-    "resolveJsonModule": true,
-    "allowJs": true,
-    "noImplicitAny": true,
-  }
+    /* --- Strictness --- */
+    "strict": true, // Enable all strict type-checking options (best practice)
+    "skipLibCheck": true, // Skip type checking of declaration files (.d.ts)
+    "forceConsistentCasingInFileNames": true // Ensure consistent file name casing
+  },
+  "include": ["src/**/*"], // Only compile code inside /src
+  "exclude": ["node_modules"] // Do not compile node_modules
 }
