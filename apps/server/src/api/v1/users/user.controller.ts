@@ -5,7 +5,7 @@ export const createUser = async (req: Request, res: Response) => {
   try {
     const { name, email } = req.body;
 
-    // Gọi Service để xử lý logic
+    // Call Service to handle logic
     const newUser = await UserService.createUserService({ name, email } as any);
 
     res.status(201).json({
@@ -24,6 +24,7 @@ export const createUser = async (req: Request, res: Response) => {
 export const getUsers = async (req: Request, res: Response) => {
   try {
     const users = await UserService.getAllUsersService();
+    console.log(users);
     res.status(200).json({
       success: true,
       count: users.length,

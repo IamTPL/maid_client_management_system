@@ -3,7 +3,7 @@ import userRoutes from './users/user.route';
 
 const router = express.Router();
 
-// Gắn user routes vào đường dẫn /users
+// Mount user routes at /users path
 router.use('/users', userRoutes);
 
 export default router;

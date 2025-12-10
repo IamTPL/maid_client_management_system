@@ -3,6 +3,7 @@ import cors from 'cors';
 import helmet from 'helmet';
 import morgan from 'morgan';
 import { CONFIG } from './config';
+import { errorHandler } from './common/middleware/error-handler.middleware';
 
 const app: Application = express();
 
@@ -11,7 +12,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 // CORS Configuration (Security Guard)
 // In production, we must restrict who can access our API.
-const whitelist = ['http://localhost:3000']; // List of allowed domains (Frontend)
+const whitelist = process.env.ALLOWED_ORIGINS?.split(',') || [
+  'http://localhost:3000',
+]; // List of allowed domains (Frontend)
 
 const corsOptions: cors.CorsOptions = {
   origin: (origin, callback) => {
@@ -33,7 +36,7 @@ app.use(morgan('dev'));
 
 import apiRoutes from './api/v1';
 
-// ... (các middleware khác)
+// ... (other middlewares)
 
 // API Routes
 app.use(CONFIG.API_PREFIX, apiRoutes); // /api/v1
@@ -44,13 +47,7 @@ app.get('/health', (req: Request, res: Response) => {
 });
 
 // Global Error Handler
-app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
-  console.error(err.stack);
-  res.status(500).json({
-    success: false,
-    message: 'Internal Server Error',
-    error: CONFIG.ENV === 'development' ? err.message : undefined,
-  });
-});
+// Global Error Handler
+app.use(errorHandler);
 
 export default app;
