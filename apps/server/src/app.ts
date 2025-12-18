@@ -12,9 +12,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 // CORS Configuration (Security Guard)
 // In production, we must restrict who can access our API.
-const whitelist = process.env.ALLOWED_ORIGINS?.split(',') || [
-  'http://localhost:3000',
-]; // List of allowed domains (Frontend)
+const whitelist = process.env.ALLOWED_ORIGINS?.split(',') || ['http://localhost:3000']; // List of allowed domains (Frontend)
 
 const corsOptions: cors.CorsOptions = {
   origin: (origin, callback) => {

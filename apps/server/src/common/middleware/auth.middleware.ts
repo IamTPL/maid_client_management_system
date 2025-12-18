@@ -10,11 +10,7 @@ declare global {
   }
 }
 
-export const authMiddleware = (
-  req: Request,
-  res: Response,
-  next: NextFunction
-) => {
+export const authMiddleware = (req: Request, res: Response, next: NextFunction) => {
   // 1. Get Token from Header
   // Format: "Bearer <token123>"
   const authHeader = req.headers.authorization;

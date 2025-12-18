@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "pnpm --recursive --parallel dev"
+    "dev": "pnpm --recursive --parallel dev",
+    "format": "prettier --write ."
   },
   "keywords": [],
   "author": "",
@@ -13,5 +14,8 @@
   "packageManager": "pnpm@10.20.0",
   "dependencies": {
     "mongodb": "^7.0.0"
+  },
+  "devDependencies": {
+    "prettier": "^3.7.4"
   }
 }

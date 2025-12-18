@@ -6,12 +6,7 @@ interface AppError extends Error {
   statusCode?: number;
 }
 
-export const errorHandler = (
-  err: AppError,
-  req: Request,
-  res: Response,
-  next: NextFunction
-) => {
+export const errorHandler = (err: AppError, req: Request, res: Response, next: NextFunction) => {
   // 1. Log the error (In production, use a logger like Winston/Sentry)
   console.error(`❌ Error: ${err.message}`);
   if (CONFIG.ENV === 'development') {
